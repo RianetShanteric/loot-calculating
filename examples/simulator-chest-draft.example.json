@@ -1,0 +1,20 @@
+{
+  "id": "monthly-chest-example",
+  "name": "Пример ежемесячного сундука",
+  "sourceUrl": "https://example.com/perfect-world/chest",
+  "iconUrl": "https://example.com/images/chest.png",
+  "rewards": [
+    {
+      "name": "Предмет A",
+      "iconUrl": "https://example.com/images/item-a.png",
+      "quantity": 1,
+      "chancePercent": 75
+    },
+    {
+      "name": "Предмет B",
+      "iconUrl": "https://example.com/images/item-b.png",
+      "quantity": 10,
+      "chancePercent": 25
+    }
+  ]
+}

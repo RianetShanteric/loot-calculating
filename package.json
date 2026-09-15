@@ -1,0 +1,44 @@
+{
+  "name": "loot-calculate",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "browserslist": [
+    "> 0.5%",
+    "last 3 versions",
+    "iOS >= 13",
+    "Android >= 8",
+    "not dead"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "npm run chest:validate && tsc -b && vite build",
+    "chest:validate": "node scripts/chest-import/validate-installed.mjs",
+    "chest:import": "node scripts/chest-import/import.mjs",
+    "chest:from-lm": "node scripts/chest-import/lm-studio.mjs",
+    "lint": "oxlint",
+    "test": "vitest run",
+    "typecheck": "tsc -b",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "lucide-react": "^1.24.0",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "react-router-dom": "^7.18.4"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.2",
+    "@types/node": "^24.13.2",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.3",
+    "autoprefixer": "^10.5.3",
+    "oxlint": "^1.71.0",
+    "postcss": "^8.5.19",
+    "tailwindcss": "^4.3.2",
+    "typescript": "~6.0.2",
+    "vite": "^8.1.1",
+    "vitest": "^5.0.1"
+  }
+}

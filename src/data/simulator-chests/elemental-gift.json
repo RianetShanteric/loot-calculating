@@ -1,0 +1,442 @@
+{
+  "id": "elemental-gift",
+  "name": "Дар богов стихий",
+  "icon": "/simulator-icons/88702.png",
+  "sourceUrl": "https://pwdatabase.ru/tasks/55707",
+  "rewards": [
+    {
+      "id": "elemental-gift-1",
+      "name": "Бронзовая монета",
+      "icon": "/simulator-icons/39872.png",
+      "quantity": 1,
+      "chancePercent": 73.562
+    },
+    {
+      "id": "elemental-gift-2",
+      "name": "Выгравированное лезвие",
+      "icon": "/simulator-icons/59660.png",
+      "quantity": 1000,
+      "chancePercent": 0.5
+    },
+    {
+      "id": "elemental-gift-3",
+      "name": "Шкатулка гравировщика",
+      "icon": "/simulator-icons/71618.png",
+      "quantity": 1,
+      "chancePercent": 0.1
+    },
+    {
+      "id": "elemental-gift-4",
+      "name": "Отличный приз",
+      "icon": "/simulator-icons/24722.png",
+      "quantity": 1,
+      "chancePercent": 5
+    },
+    {
+      "id": "elemental-gift-5",
+      "name": "Сертификат ювелира",
+      "icon": "/simulator-icons/47254.png",
+      "quantity": 1,
+      "chancePercent": 5
+    },
+    {
+      "id": "elemental-gift-6",
+      "name": "Пилюля звездного духа 4 ур.",
+      "icon": "/simulator-icons/62270.png",
+      "quantity": 10,
+      "chancePercent": 5
+    },
+    {
+      "id": "elemental-gift-7",
+      "name": "Пилюля звездного духа 4 ур.",
+      "icon": "/simulator-icons/62270.png",
+      "quantity": 9999,
+      "chancePercent": 0.01
+    },
+    {
+      "id": "elemental-gift-8",
+      "name": "Набор рун (4 ур.)",
+      "icon": "/simulator-icons/58015.png",
+      "quantity": 1,
+      "chancePercent": 2.5
+    },
+    {
+      "id": "elemental-gift-9",
+      "name": "Спящая душа полководца",
+      "icon": "/simulator-icons/59974.png",
+      "quantity": 1,
+      "chancePercent": 0.5
+    },
+    {
+      "id": "elemental-gift-10",
+      "name": "Шкатулка с платиновым амулетом",
+      "icon": "/simulator-icons/47308.png",
+      "quantity": 1,
+      "chancePercent": 2
+    },
+    {
+      "id": "elemental-gift-11",
+      "name": "Набор рун (9 ур.)",
+      "icon": "/simulator-icons/68150.png",
+      "quantity": 1,
+      "chancePercent": 0.01
+    },
+    {
+      "id": "elemental-gift-12",
+      "name": "Душа Тай Чу",
+      "icon": "/simulator-icons/71530.png",
+      "quantity": 1,
+      "chancePercent": 0.01
+    },
+    {
+      "id": "elemental-gift-13",
+      "name": "Душа Тай Шанг",
+      "icon": "/simulator-icons/59659.png",
+      "quantity": 1,
+      "chancePercent": 0.01
+    },
+    {
+      "id": "elemental-gift-14",
+      "name": "Император",
+      "icon": "/simulator-icons/36676.png",
+      "quantity": 1,
+      "chancePercent": 0.005
+    },
+    {
+      "id": "elemental-gift-15",
+      "name": "Кисть императора",
+      "icon": "/simulator-icons/72580.png",
+      "quantity": 1,
+      "chancePercent": 0.005
+    },
+    {
+      "id": "elemental-gift-16",
+      "name": "Лазурная печать",
+      "icon": "/simulator-icons/60239.png",
+      "quantity": 1,
+      "chancePercent": 0.02
+    },
+    {
+      "id": "elemental-gift-17",
+      "name": "★★★Шлем героя",
+      "icon": "/simulator-icons/38256.png",
+      "quantity": 1,
+      "chancePercent": 0.02
+    },
+    {
+      "id": "elemental-gift-18",
+      "name": "Камень казни",
+      "icon": "/simulator-icons/60098.png",
+      "quantity": 1,
+      "chancePercent": 0.01
+    },
+    {
+      "id": "elemental-gift-19",
+      "name": "Сияние богини Сихэ",
+      "icon": "/simulator-icons/75899.png",
+      "quantity": 1,
+      "chancePercent": 0.002
+    },
+    {
+      "id": "elemental-gift-20",
+      "name": "Радужный кристалл",
+      "icon": "/simulator-icons/48668.png",
+      "quantity": 1,
+      "chancePercent": 0.01
+    },
+    {
+      "id": "elemental-gift-21",
+      "name": "Лотос Чистого мира",
+      "icon": "/simulator-icons/87569.png",
+      "quantity": 1,
+      "chancePercent": 0.001
+    },
+    {
+      "id": "elemental-gift-22",
+      "name": "Гадальный диск",
+      "icon": "/simulator-icons/68145.png",
+      "quantity": 1,
+      "chancePercent": 0.004
+    },
+    {
+      "id": "elemental-gift-23",
+      "name": "Эссенция ключевой воды",
+      "icon": "/simulator-icons/68146.png",
+      "quantity": 1,
+      "chancePercent": 0.004
+    },
+    {
+      "id": "elemental-gift-24",
+      "name": "Сокровенная жемчужина",
+      "icon": "/simulator-icons/43955.png",
+      "quantity": 1,
+      "chancePercent": 0.02
+    },
+    {
+      "id": "elemental-gift-25",
+      "name": "Душа девяти снов",
+      "icon": "/simulator-icons/65908.png",
+      "quantity": 1,
+      "chancePercent": 0.005
+    },
+    {
+      "id": "elemental-gift-26",
+      "name": "Слеза Яо Цзи",
+      "icon": "/simulator-icons/84691.png",
+      "quantity": 1,
+      "chancePercent": 0.002
+    },
+    {
+      "id": "elemental-gift-27",
+      "name": "Шкатулка 'Врата черной души'",
+      "icon": "/simulator-icons/86555.png",
+      "quantity": 1,
+      "chancePercent": 0.004
+    },
+    {
+      "id": "elemental-gift-28",
+      "name": "Великий метеорит",
+      "icon": "/simulator-icons/75379.png",
+      "quantity": 1,
+      "chancePercent": 0.5
+    },
+    {
+      "id": "elemental-gift-29",
+      "name": "Шкатулка с картой S",
+      "icon": "/simulator-icons/67145.png",
+      "quantity": 1,
+      "chancePercent": 0.2
+    },
+    {
+      "id": "elemental-gift-30",
+      "name": "Высший камень божества",
+      "icon": "/simulator-icons/70565.png",
+      "quantity": 1,
+      "chancePercent": 0.2
+    },
+    {
+      "id": "elemental-gift-31",
+      "name": "Набор рун (7 ур.)",
+      "icon": "/simulator-icons/58016.png",
+      "quantity": 1,
+      "chancePercent": 0.2
+    },
+    {
+      "id": "elemental-gift-32",
+      "name": "Лунный кристалл",
+      "icon": "/simulator-icons/61765.png",
+      "quantity": 1,
+      "chancePercent": 0.1
+    },
+    {
+      "id": "elemental-gift-33",
+      "name": "Эссенция власти Линсю",
+      "icon": "/simulator-icons/50265.png",
+      "quantity": 1,
+      "chancePercent": 0.1
+    },
+    {
+      "id": "elemental-gift-34",
+      "name": "Алмазная броня",
+      "icon": "/simulator-icons/21377.png",
+      "quantity": 3,
+      "chancePercent": 0.1
+    },
+    {
+      "id": "elemental-gift-35",
+      "name": "Каменная броня",
+      "icon": "/simulator-icons/21378.png",
+      "quantity": 3,
+      "chancePercent": 0.1
+    },
+    {
+      "id": "elemental-gift-36",
+      "name": "Камень Якшас",
+      "icon": "/simulator-icons/47275.png",
+      "quantity": 3,
+      "chancePercent": 0.1
+    },
+    {
+      "id": "elemental-gift-37",
+      "name": "Камень семи преград",
+      "icon": "/simulator-icons/47277.png",
+      "quantity": 3,
+      "chancePercent": 0.1
+    },
+    {
+      "id": "elemental-gift-38",
+      "name": "Камень небосвода",
+      "icon": "/simulator-icons/47269.png",
+      "quantity": 1,
+      "chancePercent": 0.2
+    },
+    {
+      "id": "elemental-gift-39",
+      "name": "Мерцающий камень",
+      "icon": "/simulator-icons/47274.png",
+      "quantity": 1,
+      "chancePercent": 0.2
+    },
+    {
+      "id": "elemental-gift-40",
+      "name": "★★★Плащ вознесения",
+      "icon": "/simulator-icons/38257.png",
+      "quantity": 1,
+      "chancePercent": 0.025
+    },
+    {
+      "id": "elemental-gift-41",
+      "name": "Печать дракона",
+      "icon": "/simulator-icons/64628.png",
+      "quantity": 1,
+      "chancePercent": 0.1
+    },
+    {
+      "id": "elemental-gift-42",
+      "name": "Свиток дракона",
+      "icon": "/simulator-icons/48669.png",
+      "quantity": 1,
+      "chancePercent": 0.25
+    },
+    {
+      "id": "elemental-gift-43",
+      "name": "Яшмовый осколок",
+      "icon": "/simulator-icons/51167.png",
+      "quantity": 1,
+      "chancePercent": 0.1
+    },
+    {
+      "id": "elemental-gift-44",
+      "name": "Камень Джунглей",
+      "icon": "/simulator-icons/28300.png",
+      "quantity": 6,
+      "chancePercent": 0.25
+    },
+    {
+      "id": "elemental-gift-45",
+      "name": "Знак командира",
+      "icon": "/simulator-icons/25151.png",
+      "quantity": 1,
+      "chancePercent": 0.25
+    },
+    {
+      "id": "elemental-gift-46",
+      "name": "Печать Куба",
+      "icon": "/simulator-icons/23972.png",
+      "quantity": 1,
+      "chancePercent": 0.25
+    },
+    {
+      "id": "elemental-gift-47",
+      "name": "Божественный свиток",
+      "icon": "/simulator-icons/24725.png",
+      "quantity": 1,
+      "chancePercent": 0.05
+    },
+    {
+      "id": "elemental-gift-48",
+      "name": "Набор рун (9 ур.)",
+      "icon": "/simulator-icons/68150.png",
+      "quantity": 3,
+      "chancePercent": 0.001
+    },
+    {
+      "id": "elemental-gift-49",
+      "name": "Радужный кристалл",
+      "icon": "/simulator-icons/48668.png",
+      "quantity": 3,
+      "chancePercent": 0.001
+    },
+    {
+      "id": "elemental-gift-50",
+      "name": "Камень казни",
+      "icon": "/simulator-icons/60098.png",
+      "quantity": 3,
+      "chancePercent": 0.001
+    },
+    {
+      "id": "elemental-gift-51",
+      "name": "Гадальный диск",
+      "icon": "/simulator-icons/68145.png",
+      "quantity": 3,
+      "chancePercent": 0.001
+    },
+    {
+      "id": "elemental-gift-52",
+      "name": "Эссенция ключевой воды",
+      "icon": "/simulator-icons/68146.png",
+      "quantity": 3,
+      "chancePercent": 0.001
+    },
+    {
+      "id": "elemental-gift-53",
+      "name": "Шкатулка 'Врата черной души'",
+      "icon": "/simulator-icons/86555.png",
+      "quantity": 3,
+      "chancePercent": 0.001
+    },
+    {
+      "id": "elemental-gift-54",
+      "name": "Шкатулка с платиновым идолом",
+      "icon": "/simulator-icons/47309.png",
+      "quantity": 1,
+      "chancePercent": 2
+    },
+    {
+      "id": "elemental-gift-55",
+      "name": "Звонкий колокольчик",
+      "icon": "/simulator-icons/66184.png",
+      "quantity": 1,
+      "chancePercent": 0.1
+    },
+    {
+      "id": "elemental-gift-56",
+      "name": "Драконья упряжь",
+      "icon": "/simulator-icons/66856.png",
+      "quantity": 1,
+      "chancePercent": 0.1
+    },
+    {
+      "id": "elemental-gift-57",
+      "name": "Веер зари",
+      "icon": "/simulator-icons/66858.png",
+      "quantity": 1,
+      "chancePercent": 0.1
+    },
+    {
+      "id": "elemental-gift-58",
+      "name": "Великий метеорит",
+      "icon": "/simulator-icons/75379.png",
+      "quantity": 100,
+      "chancePercent": 0.001
+    },
+    {
+      "id": "elemental-gift-59",
+      "name": "Шкатулка с картой S",
+      "icon": "/simulator-icons/67145.png",
+      "quantity": 20,
+      "chancePercent": 0.001
+    },
+    {
+      "id": "elemental-gift-60",
+      "name": "Высший камень божества",
+      "icon": "/simulator-icons/70565.png",
+      "quantity": 25,
+      "chancePercent": 0.001
+    },
+    {
+      "id": "elemental-gift-61",
+      "name": "Лунный кристалл",
+      "icon": "/simulator-icons/61765.png",
+      "quantity": 15,
+      "chancePercent": 0.001
+    },
+    {
+      "id": "elemental-gift-62",
+      "name": "Шкатулка гравировщика",
+      "icon": "/simulator-icons/71618.png",
+      "quantity": 10,
+      "chancePercent": 0.001
+    }
+  ]
+}

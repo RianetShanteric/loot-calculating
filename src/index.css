@@ -1,0 +1,743 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  color-scheme: light;
+  --pw-night: #050817;
+  --pw-night-soft: #0a1024;
+  --pw-violet: #8b5cf6;
+  --pw-sky: #38bdf8;
+  --pw-jade: #34d399;
+  --pw-gold: #f6c85f;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+/* `color-scheme: dark` alone doesn't reliably theme the native <option> popup in every
+   browser/OS combo — it can fall back to a white popup with dark (near-invisible) text.
+   Style <option> explicitly so the dropdown list stays legible regardless. */
+.dark select option {
+  background-color: var(--pw-night-soft);
+  color: #e2e8f0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes blob-drift {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(5%, -8%) scale(1.1);
+  }
+  66% {
+    transform: translate(-4%, 5%) scale(0.92);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+body {
+  @apply bg-gray-50 text-gray-900;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+/* Explicit ancestor selector (not the `dark:` :where()-based variant) so this reliably beats the
+   plain `body` rule above regardless of Tailwind's nested-rule nesting order/specificity quirks. */
+html.dark body {
+  background:
+    radial-gradient(circle at 6% -6%, rgba(139, 92, 246, 0.27), transparent 34rem),
+    radial-gradient(circle at 96% 24%, rgba(56, 189, 248, 0.2), transparent 32rem),
+    radial-gradient(circle at 48% 108%, rgba(52, 211, 153, 0.14), transparent 34rem),
+    var(--pw-night);
+  @apply text-gray-100;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button,
+input,
+select {
+  font: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100 dark:bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply rounded-full bg-gray-300;
+}
+
+html.dark ::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, var(--pw-sky), var(--pw-violet), var(--pw-jade));
+}
+
+table {
+  border-collapse: collapse;
+}
+
+input[type='number'] {
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  margin: 0;
+  -webkit-appearance: none;
+}
+
+.deviation-positive {
+  @apply font-semibold text-emerald-600 dark:text-emerald-400;
+}
+
+.deviation-negative {
+  @apply font-semibold text-rose-600 dark:text-rose-400;
+}
+
+.deviation-neutral {
+  @apply text-gray-500 dark:text-gray-500;
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.shimmer-bg {
+  background-size: 200% 100%;
+  animation: shimmer 1.6s linear infinite;
+}
+
+.celestial-gradient-text {
+  color: transparent;
+  background: linear-gradient(100deg, #0f172a 0%, #334155 48%, #0369a1 100%);
+  background-size: 100% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+.dark .celestial-gradient-text {
+  background: linear-gradient(100deg, #f8fafc 0%, #cbd5e1 48%, var(--pw-sky) 100%);
+  background-size: 100% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+.celestial-accent-text {
+  color: #4f46e5;
+}
+
+.dark .celestial-accent-text {
+  color: var(--pw-sky);
+}
+
+.dark .celestial-card {
+  border-color: transparent;
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  background:
+    radial-gradient(circle at 100% 0%, rgba(56, 189, 248, 0.09), transparent 19rem) padding-box,
+    radial-gradient(circle at 0% 100%, rgba(139, 92, 246, 0.09), transparent 22rem) padding-box,
+    linear-gradient(145deg, rgba(15, 24, 56, 0.94), rgba(6, 11, 29, 0.91)) padding-box,
+    linear-gradient(120deg, rgba(52, 211, 153, 0.36), rgba(56, 189, 248, 0.48), rgba(139, 92, 246, 0.44), rgba(246, 200, 95, 0.3)) border-box;
+  box-shadow:
+    0 28px 70px -40px rgba(56, 189, 248, 0.4),
+    0 16px 52px -42px rgba(139, 92, 246, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.055);
+}
+
+.dark .celestial-card:hover {
+  box-shadow:
+    0 34px 86px -42px rgba(139, 92, 246, 0.56),
+    0 18px 58px -40px rgba(52, 211, 153, 0.42),
+    inset 0 1px 0 rgba(255, 255, 255, 0.075);
+  transform: translateY(-1px);
+}
+
+.celestial-icon-shell {
+  color: #4f46e5;
+  background: #eef2ff;
+}
+
+.dark .celestial-icon-shell {
+  color: #dbeafe;
+  background: linear-gradient(135deg, rgba(246, 200, 95, 0.2), rgba(52, 211, 153, 0.18), rgba(56, 189, 248, 0.2), rgba(139, 92, 246, 0.22));
+  box-shadow:
+    0 0 36px -7px rgba(56, 189, 248, 0.82),
+    0 0 28px -12px rgba(246, 200, 95, 0.8),
+    inset 0 0 16px rgba(139, 92, 246, 0.12);
+}
+
+.celestial-brand-mark {
+  position: relative;
+  background: linear-gradient(135deg, var(--pw-jade), var(--pw-sky));
+}
+
+.celestial-progress {
+  background: linear-gradient(90deg, var(--pw-jade), var(--pw-sky));
+  box-shadow: 0 0 14px rgba(56, 189, 248, 0.38);
+}
+
+.dark .celestial-selected {
+  border-color: rgba(52, 211, 153, 0.58);
+  background: linear-gradient(105deg, rgba(52, 211, 153, 0.16), rgba(56, 189, 248, 0.11), rgba(139, 92, 246, 0.17));
+  box-shadow:
+    0 0 34px -12px rgba(52, 211, 153, 0.82),
+    0 18px 45px -35px rgba(56, 189, 248, 0.78),
+    inset 0 1px 0 rgba(255, 255, 255, 0.075);
+}
+
+.dark .celestial-table-head {
+  background: linear-gradient(90deg, rgba(139, 92, 246, 0.1), rgba(56, 189, 248, 0.065), rgba(52, 211, 153, 0.075));
+}
+
+.dark .celestial-summary-panel {
+  background: linear-gradient(135deg, rgba(246, 200, 95, 0.1), rgba(56, 189, 248, 0.075), rgba(139, 92, 246, 0.12));
+  border: 1px solid rgba(125, 150, 201, 0.2);
+}
+
+.celestial-app-shell {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  overflow: clip;
+}
+
+.celestial-grid-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: -9;
+  pointer-events: none;
+  opacity: 0;
+  background-image:
+    linear-gradient(rgba(125, 150, 201, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(125, 150, 201, 0.035) 1px, transparent 1px);
+  background-size: 54px 54px;
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), transparent 72%);
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), transparent 72%);
+}
+
+.dark .celestial-grid-overlay {
+  opacity: 1;
+}
+
+.celestial-aurora {
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(110px);
+  will-change: transform;
+}
+
+.celestial-header {
+  position: sticky;
+  -webkit-backdrop-filter: blur(24px);
+  backdrop-filter: blur(24px);
+}
+
+.celestial-app-shell footer {
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+}
+
+.celestial-nav-active {
+  color: white;
+  background: linear-gradient(115deg, #6366f1, #0ea5e9);
+  box-shadow:
+    0 0 24px -9px rgba(56, 189, 248, 0.62),
+    0 12px 30px -22px rgba(99, 102, 241, 0.8);
+}
+
+.celestial-primary-button {
+  color: white;
+  background: linear-gradient(110deg, var(--pw-violet), var(--pw-sky));
+  box-shadow: 0 14px 34px -18px rgba(56, 189, 248, 0.7);
+}
+
+.celestial-primary-button:hover:not(:disabled) {
+  filter: brightness(1.08);
+  box-shadow:
+    0 0 32px -7px rgba(56, 189, 248, 0.78),
+    0 16px 40px -22px rgba(52, 211, 153, 0.9);
+}
+
+.dark .celestial-control {
+  border-color: rgba(125, 150, 201, 0.2);
+  background: linear-gradient(135deg, rgba(23, 34, 70, 0.72), rgba(10, 16, 39, 0.78));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.035);
+}
+
+.dark .celestial-control:hover {
+  border-color: rgba(56, 189, 248, 0.32);
+}
+
+.celestial-control:is(select),
+.celestial-native-select {
+  appearance: none;
+  -webkit-appearance: none;
+  padding-right: 2.15rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%2364748b' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.8' d='m4 6 4 4 4-4'/%3E%3C/svg%3E");
+  background-position: right 0.65rem center;
+  background-repeat: no-repeat;
+  background-size: 0.85rem;
+}
+
+.dark .celestial-control:is(select) {
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%23cbd5e1' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.8' d='m4 6 4 4 4-4'/%3E%3C/svg%3E"),
+    linear-gradient(135deg, rgba(23, 34, 70, 0.72), rgba(10, 16, 39, 0.78));
+  background-position: right 0.65rem center, 0 0;
+  background-repeat: no-repeat, no-repeat;
+  background-size: 0.85rem, auto;
+}
+
+.dark .celestial-native-select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%23cbd5e1' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.8' d='m4 6 4 4 4-4'/%3E%3C/svg%3E");
+}
+
+.celestial-checkbox {
+  width: 1.15rem;
+  height: 1.15rem;
+  flex: 0 0 auto;
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid rgba(100, 116, 139, 0.55);
+  border-radius: 0.3rem;
+  background-color: rgba(255, 255, 255, 0.78);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 0.72rem;
+  transition:
+    border-color 0.15s ease,
+    background-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.dark .celestial-checkbox {
+  border-color: rgba(148, 163, 184, 0.48);
+  background-color: rgba(15, 23, 42, 0.72);
+}
+
+.celestial-checkbox:checked {
+  border-color: #0ea5e9;
+  background-color: #0ea5e9;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='white' stroke-linecap='round' stroke-linejoin='round' stroke-width='2.2' d='m3.2 8.2 3 3 6.6-6.5'/%3E%3C/svg%3E");
+  box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.14);
+}
+
+.celestial-page-header {
+  position: relative;
+  padding: 0.4rem 0 0.8rem;
+}
+
+.celestial-dungeon-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.celestial-dungeon-tile {
+  position: relative;
+  display: grid;
+  min-height: 7.2rem;
+  align-content: center;
+  gap: 0.7rem;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  border-radius: 1rem;
+  padding: 1rem;
+  cursor: pointer;
+  overflow: hidden;
+  transition:
+    transform 0.22s ease,
+    border-color 0.22s ease,
+    box-shadow 0.22s ease,
+    background 0.22s ease;
+}
+
+.dark .celestial-dungeon-tile {
+  background: linear-gradient(145deg, rgba(20, 30, 65, 0.62), rgba(8, 14, 35, 0.72));
+  border-color: rgba(125, 150, 201, 0.17);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.025);
+}
+
+.celestial-dungeon-tile:hover {
+  transform: translateY(-2px);
+}
+
+.dark .celestial-dungeon-tile:hover {
+  border-color: rgba(56, 189, 248, 0.4);
+  box-shadow: 0 18px 40px -28px rgba(56, 189, 248, 0.8);
+}
+
+.celestial-dungeon-tile::after {
+  content: '';
+  position: absolute;
+  inset: auto -20% -70% 20%;
+  height: 8rem;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.16), transparent 66%);
+  pointer-events: none;
+}
+
+.celestial-check-mark {
+  display: grid;
+  width: 1.55rem;
+  height: 1.55rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid rgba(148, 163, 184, 0.38);
+  border-radius: 999px;
+  color: transparent;
+  transition: all 0.22s ease;
+}
+
+.celestial-selected .celestial-check-mark {
+  color: white;
+  border-color: transparent;
+  background: linear-gradient(135deg, var(--pw-gold), var(--pw-jade), var(--pw-sky));
+  box-shadow: 0 0 20px rgba(52, 211, 153, 0.55);
+}
+
+.celestial-profit-track {
+  height: 0.22rem;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(148, 163, 184, 0.13);
+}
+
+.celestial-profit-track > span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--pw-jade), var(--pw-sky));
+}
+
+.celestial-category-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  border: 1px solid rgba(148, 163, 184, 0.24);
+  border-radius: 0.75rem;
+  padding: 0.55rem 0.85rem;
+  color: #64748b;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.dark .celestial-category-tab {
+  color: #94a3b8;
+  border-color: rgba(125, 150, 201, 0.15);
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.celestial-category-tab:hover {
+  border-color: rgba(56, 189, 248, 0.42);
+  color: #e2e8f0;
+}
+
+.celestial-category-tab-active {
+  color: white !important;
+  border-color: transparent !important;
+  background: linear-gradient(100deg, rgba(139, 92, 246, 0.92), rgba(56, 189, 248, 0.92), rgba(52, 211, 153, 0.9)) !important;
+  box-shadow: 0 0 26px -8px rgba(56, 189, 248, 0.8);
+}
+
+.celestial-profit-hero {
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba(125, 150, 201, 0.2);
+  border-bottom: 1px solid rgba(125, 150, 201, 0.2);
+  padding: 1.1rem 0;
+}
+
+.celestial-profit-hero::after {
+  content: '';
+  position: absolute;
+  top: -5rem;
+  right: -3rem;
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(246, 200, 95, 0.18), transparent 68%);
+}
+
+.celestial-profit-value {
+  color: transparent;
+  background: linear-gradient(100deg, #0f766e, #0369a1);
+  background-size: 100% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+.dark .celestial-profit-value {
+  background: linear-gradient(100deg, var(--pw-jade), var(--pw-sky));
+  background-size: 100% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+.celestial-mini-bars {
+  display: flex;
+  height: 2.5rem;
+  align-items: flex-end;
+  gap: 0.3rem;
+}
+
+.celestial-mini-bars span {
+  flex: 1;
+  border-radius: 999px 999px 2px 2px;
+  background: linear-gradient(to bottom, var(--pw-gold), var(--pw-jade), var(--pw-sky));
+  opacity: 0.5;
+}
+
+.celestial-mini-bars span:nth-last-child(-n + 2) {
+  opacity: 1;
+  box-shadow: 0 0 14px rgba(56, 189, 248, 0.32);
+}
+
+.dark .celestial-table-row:hover {
+  background: linear-gradient(90deg, rgba(139, 92, 246, 0.075), rgba(56, 189, 248, 0.055), rgba(52, 211, 153, 0.06));
+}
+
+.celestial-section-icon {
+  display: grid;
+  width: 2.6rem;
+  height: 2.6rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 0.85rem;
+  color: #4f46e5;
+  background: #eef2ff;
+}
+
+.dark .celestial-section-icon {
+  color: #dbeafe;
+  border: 1px solid rgba(56, 189, 248, 0.22);
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(56, 189, 248, 0.18), rgba(52, 211, 153, 0.14));
+  box-shadow: 0 0 24px -9px rgba(56, 189, 248, 0.82);
+}
+
+.celestial-total-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  border-radius: 999px;
+  padding: 0.45rem 0.75rem;
+  color: #64748b;
+  font-size: 0.75rem;
+}
+
+.celestial-total-chip strong {
+  color: #0f172a;
+  font-size: 0.85rem;
+}
+
+.simulator-item-icon {
+  border: 1px solid rgba(100, 116, 139, 0.24);
+  background: #e2e8f0;
+  box-shadow: 0 8px 22px -16px rgba(15, 23, 42, 0.55);
+}
+
+.simulator-chest-hero,
+.simulator-summary {
+  border: 1px solid rgba(14, 165, 233, 0.18);
+  background: linear-gradient(135deg, rgba(224, 242, 254, 0.72), rgba(236, 253, 245, 0.64));
+}
+
+.simulator-preset {
+  border: 1px solid rgba(148, 163, 184, 0.32);
+  color: #475569;
+  background: rgba(248, 250, 252, 0.82);
+}
+
+.simulator-preset:hover {
+  border-color: rgba(14, 165, 233, 0.48);
+  color: #0369a1;
+}
+
+.simulator-preset-active {
+  border-color: #0ea5e9;
+  color: #075985;
+  background: rgba(224, 242, 254, 0.92);
+  box-shadow: inset 0 0 0 1px rgba(14, 165, 233, 0.16);
+}
+
+.simulator-history-row,
+.simulator-result-row {
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  background: rgba(248, 250, 252, 0.72);
+}
+
+.simulator-result-name {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.dark .simulator-item-icon {
+  border-color: rgba(246, 200, 95, 0.32);
+  background: rgba(15, 23, 42, 0.84);
+  box-shadow:
+    0 0 20px -9px rgba(246, 200, 95, 0.72),
+    0 10px 28px -20px rgba(56, 189, 248, 0.66);
+}
+
+.dark .simulator-chest-hero,
+.dark .simulator-summary {
+  border-color: rgba(56, 189, 248, 0.2);
+  background: linear-gradient(135deg, rgba(21, 32, 68, 0.82), rgba(7, 25, 39, 0.78));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.035);
+}
+
+.dark .simulator-preset {
+  border-color: rgba(125, 150, 201, 0.2);
+  color: #94a3b8;
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.dark .simulator-preset:hover {
+  border-color: rgba(56, 189, 248, 0.42);
+  color: #e2e8f0;
+}
+
+.dark .simulator-preset-active {
+  border-color: rgba(52, 211, 153, 0.58);
+  color: #ecfdf5;
+  background: linear-gradient(135deg, rgba(52, 211, 153, 0.16), rgba(56, 189, 248, 0.13));
+  box-shadow: 0 0 22px -12px rgba(52, 211, 153, 0.8);
+}
+
+.dark .simulator-history-row,
+.dark .simulator-result-row {
+  border-color: rgba(125, 150, 201, 0.14);
+  background: linear-gradient(105deg, rgba(255, 255, 255, 0.025), rgba(56, 189, 248, 0.025));
+}
+
+.dark .celestial-total-chip {
+  color: #94a3b8;
+  border-color: rgba(52, 211, 153, 0.22);
+  background: linear-gradient(100deg, rgba(52, 211, 153, 0.085), rgba(56, 189, 248, 0.07), rgba(139, 92, 246, 0.075));
+}
+
+.dark .celestial-total-chip strong {
+  color: #f8fafc;
+}
+
+.celestial-composition-row {
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 0.9rem;
+  padding: 0.65rem;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.dark .celestial-composition-row {
+  border-color: rgba(125, 150, 201, 0.14);
+  background: linear-gradient(105deg, rgba(255, 255, 255, 0.025), rgba(56, 189, 248, 0.025), rgba(139, 92, 246, 0.03));
+}
+
+.celestial-composition-row:hover {
+  border-color: rgba(56, 189, 248, 0.38);
+  transform: translateY(-1px);
+}
+
+.dark .celestial-composition-row:hover {
+  box-shadow: 0 16px 32px -28px rgba(56, 189, 248, 0.8);
+}
+
+@media (max-width: 640px) {
+  .celestial-dungeon-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .celestial-page-header {
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    border-radius: 1rem;
+    padding: 0.9rem 1rem 1rem;
+    background: rgba(255, 255, 255, 0.86);
+    box-shadow: 0 16px 40px -34px rgba(15, 23, 42, 0.3);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+  }
+
+  .dark .celestial-page-header {
+    border-color: rgba(125, 150, 201, 0.2);
+    background: linear-gradient(135deg, rgba(7, 12, 31, 0.92), rgba(13, 23, 52, 0.88));
+    box-shadow:
+      0 18px 44px -34px rgba(56, 189, 248, 0.58),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  }
+
+  .celestial-page-header h1 {
+    align-items: flex-start;
+  }
+
+  .celestial-page-header .celestial-gradient-text,
+  .dark .celestial-page-header .celestial-gradient-text {
+    color: #0f172a;
+    background: none;
+  }
+
+  .dark .celestial-page-header .celestial-gradient-text {
+    color: #f8fafc;
+    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.45);
+  }
+
+  .dark .celestial-page-header p {
+    color: #cbd5e1;
+  }
+
+  .celestial-control {
+    font-size: 1rem;
+  }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in-up,
+  .shimmer-bg,
+  .celestial-aurora {
+    animation: none !important;
+  }
+}
